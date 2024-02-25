@@ -23,8 +23,8 @@
 
 void ADC_Initialisation()
 {
-    ADCON0= 0b00000001; //Select AN0 channel and turn on ADC module
-    ADCON1 = 0b00001110; //// Set Vref- to VSS, Vref+ to VDD
+    ADCON0= 0b00000001; //Select AN0 channel and turn on ADC module. Bit selection derived from datasheet
+    ADCON1 = 0b00001110; // Set Vref- to VSS, Vref+ to VDD
 }
 
  uint16_t adc()
