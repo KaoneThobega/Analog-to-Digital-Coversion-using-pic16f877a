@@ -31,7 +31,7 @@ void ADC_Initialisation()
 {
     while(ADCON0bits.GO);
    ADCON0bits.GO = 1; // starting the adc conversion
-        return ((ADRESH<<8) | ADRESL); 
+        return ((ADRESH<<8) | ADRESL); //bit shifting operation
       
 }
 
@@ -39,15 +39,15 @@ void ADC_Initialisation()
 
 void main(void) {
    
-    TRISA=0xFF;
-    TRISB=0x00;
-    TRISC=0x00;
+    TRISA=0xFF; // making portA input
+    TRISB=0x00; //making portB output
+    TRISC=0x00; //making portC output
    
     ADC_Initialisation();
     while(1)
     {
-       uint16_t adc_value = adc();
-        PORTB =  (uint8_t) adc();
+      
+        PORTB =  (uint8_t) adc(); // initialising adc result to portB. Also casting adc to 8 bit.
         __delay_ms(100);
     }
     return;
